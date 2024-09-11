@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -f ~/.wa_aliases ]; then
   touch ~/.wa_aliases
   echo "if [ -f ~/.wa_aliases ]; then
