@@ -16,11 +16,11 @@ webilioHelp() {
   GREEN='\033[0;32m'
   YELLOW='\033[0;33m'
   BGreen='\033[1;32m'
-  echo "Usage: wa <scriptName>"
-  echo "${BGreen}Here is a list of all available commands:${NC}"
-  echo "${YELLOW}install${NC}: Install all of these command locally (recommanded)."
-  echo "${YELLOW}sail${NC}: Execute a sail command."
-  echo "${YELLOW}sail-composer${NC}: Install composer dependencies via a sail container. Can specify an argument like 81 for php8.1"
-  echo "${YELLOW}seeder${NC}: Run a db:fresh and default seeder for the app"
+  printf "Usage: wa <scriptName>\n"
+  printf "${BGreen}Here is a list of all available commands:${NC}\n"
+  printf "${YELLOW}install${NC}: Install all of these command locally (recommanded).\n"
+  printf "${YELLOW}sail${NC}: Execute a sail command.\n"
+  printf "${YELLOW}sail-composer${NC}: Install composer dependencies via a sail container. Can specify an argument like 81 for php8.1\n"
+  printf "${YELLOW}seeder${NC}: Run a db:fresh and default seeder for the app\n"
 
 }
