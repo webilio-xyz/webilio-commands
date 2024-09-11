@@ -1,7 +1,8 @@
-echo "alias wa='webilioAlias'" >> ~/.bashrc;
-echo "" >> ~/.bashrc;
-echo "webilioAlias() {" >> ~/.bashrc;
-echo '  scriptName=$1' >> ~/.bashrc;
-echo '  shift' >> ~/.bashrc;
-echo '  sh -c "$(curl -fsSL https://raw.githubusercontent.com/vblais-webilio/webilio-commands/main/$scriptName.sh) $@"' >> ~/.bashrc;
-echo '}' >> ~/.bashrc;
+if [ ! -f ~/.wa_aliases ]; then
+  touch ~/.wa_aliases
+  echo "if [ -f ~/.wa_aliases ]; then
+      . ~/.wa_aliases
+  fi" >> ~/.bashrc
+
+  curl -fsSL https://raw.githubusercontent.com/webilio-xyz/webilio-commands/main/wa_aliases >> ~/.wa_aliases
+fi

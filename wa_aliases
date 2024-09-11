@@ -1,0 +1,7 @@
+alias wa='webilioAlias'
+
+webilioAlias() {
+  scriptName=$1
+  shift
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/webilio-xyz/webilio-commands/main/bin/$scriptName.sh) $@"
+}
