@@ -13,6 +13,9 @@ printf "\n1"
 sleep 1
 if [ ! -d ~/webilio-bin ]; then
   mkdir ~/webilio-bin
+  echo 'if [ -d ~/webilio-bin ]; then
+    export PATH=~/webilio-bin:$PATH
+fi' >> ~/.bashrc
 fi
 
 signature=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
@@ -25,6 +28,9 @@ mkdir /tmp/$signature
 unzip /tmp/$signature.zip -d /tmp/$signature >> /dev/null
 rm -r ~/webilio-bin
 mv /tmp/$signature/webilio-commands-main/bin ~/webilio-bin
+
+printf "\n${YELLOW}Changing permissions${NC}"
+find ~/webilio-bin -type f -exec chmod +x {} +
 
 printf "\n${YELLOW}Cleanup${NC}"
 if [ -f ~/webilio-bin/install.sh ]; then
