@@ -10,3 +10,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/webilio-xyz/webilio-comman
 source ~/.bashrc
 ```
 
+## Usage
+### Open up the command list
+```bash
+wa
+```
+
+## Local installation
+### Install locally
+Run this command to install or update locally installed aliases
+```bash
+wa install && source ~/.bashrc
+```
