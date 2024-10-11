@@ -1,2 +1,2 @@
 #!/bin/bash
-[ -f sail ] && bash sail || bash vendor/bin/sail
+[ -f sail ] && bash sail $@|| bash vendor/bin/sail $@
