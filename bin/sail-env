@@ -1,0 +1,22 @@
+#!/bin/bash
+phpVersion="${1:-83}"
+
+# Check if .env file exists
+if [ ! -f .env ]; then
+    if [ -f .env.example ]; then
+        echo "Copying .env.example to .env..."
+        cp .env.example .env
+        echo "Created .env file from .env.example"
+    else
+        echo "Error: .env file not found and .env.example is missing"
+        exit 1
+    fi
+fi
+
+# Check if APP_KEY is empty in existing .env file
+if grep -q '^APP_KEY=$' .env; then
+    echo "Generating application key..."
+    docker run --rm -u "$(id -u):$(id -g)" -v "$(pwd):/var/www/html" -w /var/www/html laravelsail/php$phpVersion-composer:latest php artisan key:generate
+fi
+
+
