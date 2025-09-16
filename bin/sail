@@ -1,2 +1,12 @@
 #!/bin/bash
-[ -f sail ] && bash sail $@|| bash vendor/bin/sail $@
+
+# Check if sail exists in current directory
+if [ -f ./sail ]; then
+    ./sail "$@"
+# Check if vendor/bin/sail exists
+elif [ -f ./vendor/bin/sail ]; then
+    ./vendor/bin/sail "$@"
+else
+    echo "Error: Could not find sail executable" >&2
+    exit 1
+fi
